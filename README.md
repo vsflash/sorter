@@ -10,6 +10,7 @@ For using this library just execute the following command
 ```
 $ composer require vsflash/sorter
 ```
+https://packagist.org/packages/vsflash/sorter
 
 Usage
 -----
