@@ -13,5 +13,5 @@ namespace vsflash\Sorter\sorters;
 
 interface SorterInterface
 {
-    public function sort(array $data);
+    public function sort(array $data): array;
 }
