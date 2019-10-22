@@ -40,9 +40,9 @@ class Sorter
      *
      * @param array $data
      *
-     * @return null|array
+     * @return array
      */
-    public function sort(array $data): ?array
+    public function sort(array $data): array
     {
         return $this->sorter->sort($data);
     }

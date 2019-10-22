@@ -54,14 +54,27 @@ array(5) {
 
 $sorter->setSorter('null');
 var_dump($sorter->sort($data));
-//NULL
+/*
+array(5) {
+  [0]=>
+  string(3) "vaz"
+  [1]=>
+  string(3) "bmv"
+  [2]=>
+  string(3) "kia"
+  [3]=>
+  string(5) "volvo"
+  [4]=>
+  string(5) "mazda"
+}
+*/
 
 $data = [56, 43 ,78, 93, 3, 8, 25];
 $sorter = new Sorter('asc');
 var_dump($sorter->sort($data));
 /*
 array(7) {
-    [4] =>
+  [4] =>
   int(3)
   [5] =>
   int(8)
@@ -101,7 +114,24 @@ array(7) {
 
 $sorter->setSorter('null');
 var_dump($sorter->sort($data));
-//NULL
+/*
+array(7) {
+  [3] =>
+  int(93)
+  [2] =>
+  int(78)
+  [0] =>
+  int(56)
+  [1] =>
+  int(43)
+  [6] =>
+  int(25)
+  [5] =>
+  int(8)
+  [4] =>
+  int(3)
+}
+ */
 ```
 
 Extending

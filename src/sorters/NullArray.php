@@ -19,9 +19,11 @@ class NullArray implements SorterInterface
      * Reset sort
      *
      * @param array $data
+     *
+     * @return array
      */
-    public function sort(array $data)
+    public function sort(array $data): array
     {
-        return null;
+        return $data;
     }
 }
