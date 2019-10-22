@@ -141,9 +141,6 @@ Step 1
 ```php
 <?php
 
-namespace vsflash\Sorter\sorters;
-
-
 class YourSorter implements SorterInterface
 {
     public const SORTER_TYPE = 'your_sorter_type';
@@ -155,28 +152,10 @@ class YourSorter implements SorterInterface
     }
 }
 ```
-Step 2: Add YourSorter to method createSorter() in class Factory
+Step 2:
 ```php
-namespace vsflash\Sorter;
-
-use vsflash\Sorter\sorters\AscSorter;
-use vsflash\Sorter\sorters\DescSorter;
-use vsflash\Sorter\sorters\NullArray;
-...
-use vsflash\Sorter\sorters\YourSorter;
-
-class Factory
-{
-    public static function createSorter(string $sorter_type)
-    {
-        switch ($sorter_type) {
-            ...
-            case YourSorter::SORTER_TYPE:
-                return new YourSorter();
-        }
-        throw new \RuntimeException(\sprintf('Unknown sorter "%s"', $sorter_type));
-    }
-}
+$sorter = Sorter::setCustomSorter(new YourSorter());
+$sorter->sort($data)
 ```
 
 Copyright (c) 2019, Vadim Selyan

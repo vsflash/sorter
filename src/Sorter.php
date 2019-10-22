@@ -11,6 +11,8 @@
 
 namespace vsflash\Sorter;
 
+use vsflash\Sorter\sorters\SorterInterface;
+
 class Sorter
 {
     private $sorter;
@@ -33,6 +35,18 @@ class Sorter
     public function setSorter(string $sort_type)
     {
         $this->sorter = Factory::createSorter($sort_type);
+    }
+
+    /**
+     * Set custom sorter
+     *
+     * @param SorterInterface $custom_sorter
+     *
+     * @return Sorter
+     */
+    public static function setCustomSorter(SorterInterface $custom_sorter)
+    {
+        return new self($custom_sorter::SORTER_TYPE);
     }
 
     /**
