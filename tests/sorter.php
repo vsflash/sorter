@@ -118,3 +118,20 @@ array(7) {
   [6]=>
   int(25)
 */
+
+
+class YourSorter implements \vsflash\Sorter\sorters\SorterInterface
+{
+    public const SORTER_TYPE = 'your_sorter_type';
+
+    public function sort(array $data): array
+    {
+        \arsort($data);
+
+        return $data;
+    }
+}
+$data = [23, 543, 9, 45];
+$sorter = new Sorter();
+$sorter->setCustomSorter(new YourSorter());
+\var_dump($sorter->sort($data));

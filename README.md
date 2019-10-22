@@ -154,8 +154,9 @@ class YourSorter implements SorterInterface
 ```
 Step 2:
 ```php
-$sorter = Sorter::setCustomSorter(new YourSorter());
-$sorter->sort($data)
+$sorter = new Sorter();
+$sorter->setCustomSorter(new YourSorter());
+$sorter->sort($data);
 ```
 
 Copyright (c) 2019, Vadim Selyan

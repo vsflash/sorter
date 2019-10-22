@@ -20,10 +20,13 @@ class Sorter
     /**
      * Sorter constructor.
      *
-     * @param string $sort_type
+     * @param null|string $sort_type
      */
-    public function __construct(string $sort_type)
+    public function __construct(string $sort_type = null)
     {
+        if (null === $sort_type) {
+            $sort_type = 'asc';
+        }
         $this->sorter = Factory::createSorter($sort_type);
     }
 
@@ -41,12 +44,10 @@ class Sorter
      * Set custom sorter
      *
      * @param SorterInterface $custom_sorter
-     *
-     * @return Sorter
      */
-    public static function setCustomSorter(SorterInterface $custom_sorter)
+    public function setCustomSorter(SorterInterface $custom_sorter): void
     {
-        return new self($custom_sorter::SORTER_TYPE);
+        $this->sorter = $custom_sorter;
     }
 
     /**
